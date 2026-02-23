@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float, DateTime
 from app.database import Base
+from datetime import datetime
 
 class SystemConfig(Base):
     __tablename__ = "system_config"
@@ -8,3 +9,5 @@ class SystemConfig(Base):
     mode = Column(String(20), default="AUTO")          # 🔥 length added
     threshold = Column(Integer, default=3000)
     pump_status = Column(String(20), default="OFF")    # 🔥 length added
+
+created_at = Column(DateTime, default=datetime.utcnow)
